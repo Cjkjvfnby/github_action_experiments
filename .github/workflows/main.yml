@@ -6,40 +6,14 @@ jobs:
     name: Discord Webhook Notify
     runs-on: ubuntu-latest
     steps:
-      - name: Test Success
+      - name: Perfecto
         uses: rjstone/discord-webhook-notify@v1
         if: success()
-        #         if: failure()
-        with:
-            severity: error
-            details: Somthing went wrong
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-            username: CustomUsername
-            color: '#CCCCCC'
-            avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-            footer: This is a footer.
-      - name: Test 2
-        uses: rjstone/discord-webhook-notify@v1
-        if: success()
-
         with:
           severity: error
-          details: Somthing went wrong
+          details: "Build URL: *TEst* `test2` ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          username: CustomUsername
-          color: '#CCCCCC'
+          username: GitHub
+          color: '#FF000000'
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          footer: This is a footer.
-          text: This is where text goes.
-      - name: Test 3
-        uses: rjstone/discord-webhook-notify@v1
-        if: success()
-
-        with:
-          severity: error
-          details: Somthing went wrong
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          username: CustomUsername
-          color: '#CCCCCC'
-          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: 'Descr'
+          description: 'Build Failed *TEst* '
