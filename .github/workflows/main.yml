@@ -9,22 +9,37 @@ jobs:
       - name: Test Success
         uses: rjstone/discord-webhook-notify@v1
         if: success()
-        with:
-            severity: info
-            details: Test Succeeded!
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-      - name: Test Failure
-        uses: rjstone/discord-webhook-notify@v1
-        if: failure()
+        #         if: failure()
         with:
             severity: error
-            details: Test Failed!
+            details: Somthing went wrong
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-      - name: Test Cancelled
+            username: CustomUsername
+            color: '#CCCCCC'
+            avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+            footer: This is a footer.
+      - name: Test 2
         uses: rjstone/discord-webhook-notify@v1
-        if: cancelled()
+        if: success()
+
         with:
-            severity: warn
-            details: Test Cancelled!
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          
+          severity: error
+          details: Somthing went wrong
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: CustomUsername
+          color: '#CCCCCC'
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          footer: This is a footer.
+          text: This is where text goes.
+      - name: Test 3
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+
+        with:
+          severity: error
+          details: Somthing went wrong
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: CustomUsername
+          color: '#CCCCCC'
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description: 'Descr'
