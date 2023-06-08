@@ -11,8 +11,7 @@ jobs:
         with:
           title: GitHub build
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          description: "**Build Failed** [build](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
           color: 0xff0000
-          username: GitHub Actions
-          avatar_url: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          username: GitHub Actions Bot
           url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/Octocat.png
