@@ -6,22 +6,13 @@ jobs:
     name: Discord Webhook Notify
     runs-on: ubuntu-latest
     steps:
-      - name: Perfecto
-        uses: rjstone/discord-webhook-notify@v1
-        if: success()
-        with:
-          severity: error
-          details: "Build URL: TEst test2 ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          username: GitHub
-          color: '#FF000000'
-          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: 'Build Failed'
       - uses: sarisia/actions-status-discord@v1
         if: success()
         with:
+          title: GitHub build
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          description: "Build Failed `hello`, *world* ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} [build](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-          color: 0x0000ff
+          description: "**Build Failed** [build](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+          color: 0xff0000
           username: GitHub Actions
           avatar_url: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
