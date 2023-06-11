@@ -1,0 +1,11 @@
+name: "Build master"
+on:
+  push:
+jobs:
+  discord-notify-success:
+    uses: ./.github/workflows/_discord.yml
+    if: success()
+    with:
+      title: 'FreeOrion build master'
+    secrets:
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
