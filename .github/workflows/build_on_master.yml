@@ -23,8 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: my-branch
-      - uses: actions/checkout@v3
+          fetch-depth: 100
       - run: |
           echo ${{needs.check_files.outputs.output1}}
           echo "22"
