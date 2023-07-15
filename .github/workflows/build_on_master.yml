@@ -13,7 +13,7 @@ jobs:
       - name: Set vars
         id: set_files_changed
         run: |
-          .check_file_changed.py
+          ./check_file_changed.py
   second:
     needs:   check_files
     runs-on: ubuntu-latest
