@@ -36,14 +36,7 @@ jobs:
     steps:
       - run: |
           echo "33"
-  subjob1:
-    needs:   check_files
-    uses: ./.github/workflows/_subjob.yml
   subjob2:
     needs:   check_files
     if: ${{ needs.check_files.outputs.output1 == true }}
-    uses: ./.github/workflows/_subjob.yml
-  subjob3:
-    needs: check_files
-    if: ${{ false }}
     uses: ./.github/workflows/_subjob.yml
