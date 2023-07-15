@@ -28,7 +28,7 @@ jobs:
     needs:   check_files
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    if: ${{ needs.check_files.outputs.output1 == "true" }}
+    if: ${{ needs.check_files.outputs.output1 == true }}
     steps:
       - run: |
           echo "33"
@@ -37,7 +37,7 @@ jobs:
     uses: ./.github/workflows/_subjob.yml
   subjob2:
     needs:   check_files
-    if: ${{ needs.check_files.outputs.output1 == "true" }}
+    if: ${{ needs.check_files.outputs.output1 == true }}
     uses: ./.github/workflows/_subjob.yml
   subjob3:
     needs: check_files
