@@ -7,7 +7,7 @@ def main():
     print("!!!", output_path)
 
     with open(output_path, "a") as f:
-        f.write("test=false")
+        f.write("test=true")
 
 
 if __name__ == '__main__':
