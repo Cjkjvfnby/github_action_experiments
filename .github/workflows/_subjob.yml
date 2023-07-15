@@ -1,0 +1,8 @@
+on:
+  workflow_call:
+jobs:
+  subjob1:
+    steps:
+      - name: Echo one
+        run: |
+          echo "44"
