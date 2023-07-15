@@ -21,13 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
+      - name: 'PR commits + 1'
+        run: echo "PR_FETCH_DEPTH=$(( ${{ github.event.pull_request.commits }} + 1 ))" >> "${GITHUB_ENV}"
+
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 100
-      - run: |
-          echo ${{needs.check_files.outputs.output1}}
-          echo "22"
-          git diff master --name-status
+          fetch-depth: 2
+      - name: 'Get a list of changed files to process'
+        run: git diff-tree --name-only --diff-filter 'AM' -r HEAD^1 HEAD
   third:
     needs:   check_files
     runs-on: ubuntu-latest
