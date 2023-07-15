@@ -24,6 +24,7 @@ jobs:
       - run: |
           echo ${{needs.check_files.outputs.output1}}
           echo "22"
+          git diff master --name-status
   third:
     needs:   check_files
     runs-on: ubuntu-latest
